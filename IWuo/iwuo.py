@@ -4,7 +4,8 @@ import blog
 urls = (
         '/','Home',
         '/blog', blog.blog_app,
-        '/mail','Mail'
+        '/mail','Mail',
+        '/db','OpenDb'
         )
 class Home:
     def GET(self):
@@ -21,6 +22,10 @@ class Mail:
         web.sendmail('liyajie1209@gmail.com','365283170@qq.com','message','message content')
 
 
+class OpenDb:
+    def GET(self):
+        db = web.database(dbn='mysql',db='blog',user='root')
+        return 'open db'
 app = web.application(urls,locals())
 
 if __name__ == '__main__':
