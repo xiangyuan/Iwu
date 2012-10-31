@@ -13,4 +13,3 @@ class About:
         return 'about' 
 
     
-blog_app = web.application(urls,locals())
