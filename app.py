@@ -1,10 +1,21 @@
-import blog
-import IWuo
+from blog.blog import blog_app
+from IWuo.iwuo import iwuo_app
 import web
 
-mapping = (('/blog',blog.urls,blog),
-            ('/iwuo',iwuo.urls,iwuo)
+
+urls = (
+        '/','Index',
+        '/blog',blog_app,
+        '/iwuo',iwuo_app
         )
 
+class Index:
+    def GET(self):
+        return "Hello Home"
+
+
+
+index_app = web.application(urls, globals())
+
 if __name__ == '__main__':
-    delegate.run(mapping)
+    index_app.run()

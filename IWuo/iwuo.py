@@ -3,7 +3,6 @@ import blog
 
 urls = (
         '/','Home',
-        '/blog', blog.blog_app,
         '/mail','Mail',
         '/db','OpenDb'
         )
@@ -26,7 +25,6 @@ class OpenDb:
     def GET(self):
         db = web.database(dbn='mysql',db='blog',user='root')
         return 'open db'
-app = web.application(urls,locals())
 
-if __name__ == '__main__':
-    app.run()
+iwuo_app = web.application(urls,locals())
+
